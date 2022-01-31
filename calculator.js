@@ -6,7 +6,8 @@ const app = express();
 
 //define route
 app.get("/", function(request, response){
-    response.send("hello");
+    response.sendFile(__dirname + "/index.html");
+    // console.log(__dirname);
 });
 
 //spin up server
