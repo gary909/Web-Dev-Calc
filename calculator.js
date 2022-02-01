@@ -12,6 +12,7 @@ app.get("/", function(req, res){
     // console.log(__dirname);
 });
 
+
 app.post("/", function(req, res){
 
     var num1 = Number(req.body.num1);
@@ -22,7 +23,20 @@ app.post("/", function(req, res){
     res.send("The result of the calculation is " + result);
 });
 
-// console.log(req.body.num1);
+app.get("/bmicalculator", function(req, res){
+    res.sendFile(__dirname + "/bmiCalculator.html");
+});
+
+app.post("/bmicalculator", function(req, res){
+
+    var weight = Number(req.body.weight);
+    var height = Number(req.body.height);
+
+    var bmiRes = weight + height;
+
+    res.send("The BMI is " + bmiRes);
+});
+
 
 //spin up server
 app.listen(3000, function(){
